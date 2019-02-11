@@ -1,47 +1,59 @@
 import React, {Component} from "react";
-import { View, Text, FlatList } from "react-native";
-import { FormLabel, FormInput, FormValidationMessage, CheckBox } from 'react-native-elements'
+import axios from "axios";
+import { View, Text, FlatList, TextInput } from "react-native";
+import { FormLabel, FormInput, FormValidationMessage, CheckBox, Button } from 'react-native-elements'
+import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 
+let name;
 
 class Form extends Component{
-    constructor(){
-        super();
-
+    constructor(props){
+        super(props);
         this.state = {
-            checkbox1: false,
-            checkbox2: false,
-            checkbox3: false
+            checked: false
         }
+    }
+
+    submit() {
+        axios
+        .post(`http://localhost:3001`, {
+            name: name,
+        })
+        .then((res) => {
+            console.log(res)
+        })
+         .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+    }
+
+    checkboxHandler(){
+        this.setState({
+            checked: !this.state.checked
+        })
+        console.log(this.state.checked)
     }
 
     render(){
         return(
             <View>
-            <FormLabel>Name</FormLabel>
-            <FormInput/>
+            <FormLabel>  Name </FormLabel>
+            <FormInput
+                textInputRef = {name}/>
             
-            <FormLabel> CPTG 121</FormLabel>
-             <CheckBox
-              value={this.state.checkbox1}
-              onChange={() => this.setState({ checkbox1: !this.state.checkbox1 })}
-        />
-
-        <FormLabel> CPTG 122 </FormLabel>
-        <CheckBox
-          value={this.state.checkbox2}
-          onChange={() => this.setState({ checkbox2: !this.state.checkbox2 })}
-        />
-
-        <FormLabel> CPTG 224 </FormLabel>
-        <CheckBox
-          value={this.state.checkbox3}
-          onChange={() => this.setState({ checkbox3: !this.state.checkbox3 })}
-        />
-
+            <CheckBox
+                checked = {this.state.checked}
+                onChange = {this.checkboxHandler}/>
 
             <FormValidationMessage>Error message</FormValidationMessage>
 
-            </View>
+        <Button 
+        onPress = {this.submit}
+        title = "Submit"
+        > submit </Button>
+            
+        </View>
 
         ) //end return
     } // end render

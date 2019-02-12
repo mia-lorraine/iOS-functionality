@@ -64,7 +64,6 @@ class DetailsScreen extends React.Component {
 
 class AddStudentForm extends React.Component {
   render(){
-    console.log(this.props.data)
     return(
       <View>
         <Form/>
@@ -116,7 +115,7 @@ class StudentList extends React.Component {
 
          <Button
           title="Add a Student"
-          data = {this.state.data}
+          // data = {this.state.dataSource}
           onPress={() => this.props.navigation.navigate('AddStudent')}
         />
 

@@ -1,7 +1,23 @@
 {
-    "info": [
-        {"id": 1, "name": "Mia Laurea" , "fall15": "CPTG121", "winter15":"CPTG122"},
-        {"id": 2, "name": "Ethan Morales" , "fall15": "CPTG121"},
-        {"id": 3, "name": "Cody Johnson", "fall15":"CPTG121"}
-    ] 
+  "info": [
+    {
+      "id": 1,
+      "name": "Mia Laurea",
+      "fall15": "CPTG121",
+      "winter15": "CPTG122"
+    },
+    {
+      "id": 2,
+      "name": "Ethan Morales",
+      "fall15": "CPTG121"
+    },
+    {
+      "id": 3,
+      "name": "Cody Johnson",
+      "fall15": "CPTG121"
+    },
+    {
+      "id": 4
+    }
+  ]
 }

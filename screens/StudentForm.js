@@ -10,22 +10,23 @@ class Form extends Component{
     constructor(props){
         super(props);
         this.state = {
+            test: this.props.test,
             checked: false
         }
     }
 
-    submit() {
+    submit(e) {
+        e.preventDefault(e)
         axios
-        .post(`http://localhost:3001`, {
-            name: name,
+        .post(`http://localhost:3001/info`, {
+            'name': name,
         })
         .then((res) => {
             console.log(res)
         })
-         .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
+         .catch(err => {
+        console.log('caught an error', err);
+  });
     }
 
     checkboxHandler(){

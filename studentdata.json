@@ -17,6 +17,8 @@
       "fall15": "CPTG121"
     },
     {
+      "firstParam": "yourValue",
+      "secondParam": "yourOtherValue",
       "id": 4
     }
   ]

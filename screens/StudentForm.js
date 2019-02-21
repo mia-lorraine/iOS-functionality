@@ -34,23 +34,24 @@ class Form extends Component{
         collection.name=this.state.name,
         collection.email=this.state.email
         console.warn(collection);
-    //     fetch(`http://localhost:3001/info`, {
-    //         method: 'POST',
-    //         headers: {
-    //         Accept: 'application/json',
-    //         'Content-Type': 'application/json',
-    //          },
-    //         body: JSON.stringify({
-    //         firstParam: name,
-    //         secondParam: 'yourOtherValue',
-    //       }),
-    //     })
-    //     .then((res) => {
-    //         console.log(res)
-    //     })
-    //      .catch(err => {
-    //     console.log('caught an error', err);
-    //     });
+    //     
+    fetch(`http://localhost:3001/info`, {
+            method: 'POST',
+            headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+             },
+            body: JSON.stringify({
+            name: collection.name,
+            email: collection.email
+          }),
+        })
+        .then((res) => {
+            console.log(res)
+        })
+         .catch(err => {
+        console.log('caught an error', err);
+        });
     // name.value = ''
     }
 

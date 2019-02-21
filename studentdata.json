@@ -17,8 +17,14 @@
       "fall15": "CPTG121"
     },
     {
-      "firstParam": "yourValue",
-      "secondParam": "yourOtherValue",
+      "id": 5,
+      "name": "Test",
+      "fall15": "Yes"
+
+    },
+    {
+      "name": "Hi",
+      "fall15": "Hello",
       "id": 4
     }
   ]

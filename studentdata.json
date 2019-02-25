@@ -7,19 +7,26 @@
     },
     {
       "id": 2,
-      "name": "Ethan Morales",
+      "name": "Pls work",
       "cptg121": true
     },
     {
       "id": 3,
-      "name": "Cody Johnson",
+      "name": "Testing One",
       "cptg121": true
     },
     {
-      "name": "ChkboxFalse",
+      "name": "Lemme pass my data pls",
       "email": "Yuh",
       "cptg121": false,
       "id": 4
+    },
+    {
+      "name": "Multiple Checkboxes",
+      "email": "Testing",
+      "cptg121": true,
+      "cptg122": true,
+      "id": 5
     }
   ]
 }

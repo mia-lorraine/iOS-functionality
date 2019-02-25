@@ -14,6 +14,7 @@ class Form extends Component{
             email: '',
             // cptg121: false,
             checked: false,
+            checked1: false
             
         }
     }
@@ -34,7 +35,8 @@ class Form extends Component{
         let collection={}
         collection.name=this.state.name,
         collection.email=this.state.email,
-        collection.checked=this.state.checked
+        collection.checked=this.state.checked,
+        collection.checked1=this.state.checked1
         console.warn(collection);
     //     
     fetch(`http://localhost:3001/info`, {
@@ -46,7 +48,8 @@ class Form extends Component{
             body: JSON.stringify({
             name: collection.name,
             email: collection.email,
-            cptg121: collection.checked
+            cptg121: collection.checked,
+            cptg122: collection.checked1
           }),
         })
         .then((res) => {
@@ -94,6 +97,19 @@ class Form extends Component{
                         }
                 }
             />
+
+              <CheckBox 
+                checked = {this.state.checked1}
+                style = {{margin:10,flex:1,height:60,backgroundColor:'lavender',justifyContent:'center'}}
+                title = 'CPTG122'
+                onPress={() => {
+                    console.warn("CPTG122 is", !this.state.checked1)
+                    const newState1 = !this.state.checked1
+                    this.setState({
+                        checked1: newState1})
+                        }
+                }
+            /> 
 
         <Button 
         onPress = {()=>this.submit()}

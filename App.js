@@ -144,7 +144,7 @@ class StudentList extends React.Component {
 class StudentProfile extends React.Component{
   render(){
     const {params} = this.props.navigation.state
-    console.warn(params.name)
+    // console.warn(params.name)
     return(
       <View>
         <Text> Viewing information for student {params.name} </Text>

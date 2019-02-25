@@ -110,7 +110,12 @@ class StudentList extends React.Component {
                 <Button
                   color="black"
                   onPress={() => {
-                   Alert.alert('Viewing info for', item.name);
+                    this.props.navigation.navigate('Profile', {
+                      name: item.name,
+                      cptg121: item.cptg121
+                    }
+                    )
+                  //  Alert.alert('Viewing info for', item.name);
                      }}
                   title={item.name}
                   /> 
@@ -135,12 +140,27 @@ class StudentList extends React.Component {
   }
 }
 
+
+class StudentProfile extends React.Component{
+  render(){
+    const {params} = this.props.navigation.state
+    console.warn(params.name)
+    return(
+      <View>
+        <Text> Viewing information for student {params.name}</Text>
+      </View>
+    )
+  }
+} //end StudentProfile
+
 const AppNavigator = createStackNavigator
 ({
   Home: HomeScreen,
   CSList: StudentList,
   Details: DetailsScreen,
-  AddStudent: AddStudentForm
+  AddStudent: AddStudentForm,
+  Profile: StudentProfile
+  
 },
  {
     initialRouteName: "Home"

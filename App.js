@@ -147,8 +147,9 @@ class StudentProfile extends React.Component{
     console.warn(params.name)
     return(
       <View>
-        <Text> Viewing information for student {params.name}</Text>
-      </View>
+        <Text> Viewing information for student {params.name} </Text>
+        <Text> { params.cptg121 === true ? <Text> taken cptg121 </Text> : <Text> not taken cptg121 </Text> } </Text>
+        </View> 
     )
   }
 } //end StudentProfile

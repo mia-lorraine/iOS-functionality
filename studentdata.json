@@ -2,8 +2,8 @@
   "info": [
     {
       "id": 1,
-     "name": "Mia Laurea",
-     "cptg121": true
+      "name": "Mia Laurea",
+      "cptg121": true
     },
     {
       "id": 2,
@@ -16,9 +16,9 @@
       "cptg121": true
     },
     {
-      "name": "Testing",
-      "email": "Testin2",
-      "cptg121": true,
+      "name": "ChkboxFalse",
+      "email": "Yuh",
+      "cptg121": false,
       "id": 4
     }
   ]

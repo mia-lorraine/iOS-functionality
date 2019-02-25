@@ -2,21 +2,23 @@
   "info": [
     {
       "id": 1,
-      "name": "Mia Laurea",
-      "fall15": "CPTG121",
-      "winter15": "CPTG122"
+     "name": "Mia Laurea",
+     "cptg121": true
     },
     {
       "id": 2,
       "name": "Ethan Morales",
-      "fall15": "CPTG121"
+      "cptg121": true
     },
     {
       "id": 3,
       "name": "Cody Johnson",
-      "fall15": "CPTG121"
+      "cptg121": true
     },
     {
+      "name": "Testing",
+      "email": "Testin2",
+      "cptg121": true,
       "id": 4
     }
   ]

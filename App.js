@@ -2,13 +2,15 @@ import React from "react";
 import FlatListDemo from "./screens/FlatList"
 import Form from "./screens/StudentForm"
 import api from "./utilities/api";
-import data from './utilities/studentdata.json'
+import data from './studentdata.json' //used to be ./utilities/studentdata.json
 import { View, 
           Text, 
           Button, 
-          FlatList, 
+          FlatList,
           List,
+          Alert,
           ActivityIndicator } from "react-native";
+
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
 
@@ -55,8 +57,6 @@ class DetailsScreen extends React.Component {
       <View>
         <Text>Details Screen</Text>
         <FlatListDemo/>
-       {/*  */}
-
       </View>
     );
   }
@@ -106,7 +106,14 @@ class StudentList extends React.Component {
           renderItem={({item}) => {
             return(
               <View>
-                <Text> {item.name} has taken {item.fall15}. </Text>
+                {/* <Text> {item.name} </Text>  */}
+                <Button
+                  color="black"
+                  onPress={() => {
+                   Alert.alert('Viewing info for', item.name);
+                     }}
+                  title={item.name}
+                  /> 
                 </View>
             )
           }}

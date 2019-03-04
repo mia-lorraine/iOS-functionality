@@ -3,30 +3,98 @@
     {
       "id": 1,
       "name": "Mia Laurea",
-      "cptg121": true
+      "cptg121": true,
+      "cptg122": true,
+      "cptg244": true,
+      "cptg245": true,
+      "cptg255": true,
+      "cptg324": true,
+      "cptg434": true,
+      "cptg445": true
     },
     {
       "id": 2,
-      "name": "Pls work",
-      "cptg121": true
+      "name": "Ethan Morales",
+      "cptg121": true,
+      "cptg122": true,
+      "cptg244": true,
+      "cptg245": true,
+      "cptg255": true,
+      "cptg324": false,
+      "cptg434": true,
+      "cptg445": true
     },
     {
       "id": 3,
-      "name": "Testing One",
-      "cptg121": true
+      "name": "Cody Johnson",
+      "cptg121": true,
+      "cptg122": true,
+      "cptg244": true,
+      "cptg245": true,
+      "cptg255": true,
+      "cptg324": false,
+      "cptg434": false,
+      "cptg445": true
     },
     {
-      "name": "Lemme pass my data pls",
-      "email": "Yuh",
-      "cptg121": false,
+      "name": "Jade Regoso",
+      "cptg121": true,
+      "cptg122": true,
+      "cptg244": true,
+      "cptg245": true,
+      "cptg255": true,
+      "cptg324": true,
+      "cptg434": true,
+      "cptg445": true,
       "id": 4
     },
     {
-      "name": "Multiple Checkboxes",
-      "email": "Testing",
+      "name": "Jacklyn Carter",
       "cptg121": true,
       "cptg122": true,
+      "cptg244": true,
+      "cptg245": true,
+      "cptg255": true,
+      "cptg324": true,
+      "cptg434": true,
+      "cptg445": true,
       "id": 5
+    },
+    {
+      "name": "Enoch Hwang",
+      "cptg121": true,
+      "cptg122": true,
+      "cptg244": false,
+      "cptg245": false,
+      "cptg255": false,
+      "cptg324": false,
+      "cptg434": false,
+      "cptg445": false,
+      "id": 6
+    },
+    {
+      "name": "New Student ",
+      "cptg121": false,
+      "cptg122": false,
+      "cptg244": false,
+      "cptg245": false,
+      "cptg255": false,
+      "cptg324": false,
+      "cptg434": false,
+      "cptg445": false,
+      "id": 7
+    },
+    {
+      "name": "Sam Ngyuen",
+      "cptg121": true,
+      "cptg122": true,
+      "cptg244": false,
+      "cptg245": false,
+      "cptg255": false,
+      "cptg324": false,
+      "cptg434": false,
+      "cptg445": false,
+      "id": 8
     }
   ]
 }

@@ -4,12 +4,16 @@ import Form from "./screens/StudentForm"
 import api from "./utilities/api";
 import data from './studentdata.json' //used to be ./utilities/studentdata.json
 import { View, 
+          Button,
           Text, 
-          Button, 
           FlatList,
           List,
           Alert,
-          ActivityIndicator } from "react-native";
+          StyleSheet,
+          ActivityIndicator,
+          ListItem,
+          TouchableOpacity} from "react-native";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
@@ -35,9 +39,9 @@ class HomeScreen extends React.Component {
 
   render() {
     return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: 'lavender' }}>
        
-        <Text>Home Screen</Text>
+        <Text style ={styles.title}> Welcome Professor Hwang </Text>
          <Button
           title="View Flatlist Demo"
           onPress={() => this.props.navigation.navigate('Details')}
@@ -93,29 +97,35 @@ class StudentList extends React.Component {
     //show waiting screen when json data is fetch
      if(this.state.isLoading){
        return(
-         <View style = {{flex: 1, padding: 20}}>
-       <ActivityIndicator/>
-       </View> 
+         <View>
+          <ActivityIndicator/>
+        </View> 
        )
      }
     return (
      // Add a list map with a link for the first item. 
-       <View> 
+       <View style = {styles.pageView}> 
        <FlatList
+          style = {{width: '100%'}}
           data = {this.state.dataSource}
           renderItem={({item}) => {
             return(
-              <View>
-                {/* <Text> {item.name} </Text>  */}
+              <View style = {styles.row}>
                 <Button
+                  style = {styles.buttonLink}
                   color="black"
                   onPress={() => {
                     this.props.navigation.navigate('Profile', {
                       name: item.name,
-                      cptg121: item.cptg121
+                      cptg121: item.cptg121,
+                      cptg122: item.cptg122,
+                      cptg244: item.cptg244,
+                      cptg255: item.cptg255,
+                      cptg324: item.cptg324,
+                      cptg324: item.cptg324,
+                      cptg445: item.cptg445
                     }
                     )
-                  //  Alert.alert('Viewing info for', item.name);
                      }}
                   title={item.name}
                   /> 
@@ -125,16 +135,20 @@ class StudentList extends React.Component {
           keyExtractor={(item, index) => index.toString()}
           />
 
-         <Button
+         <TouchableOpacity>
+          <Button
+          style = {styles.container}
           title="Add a Student"
-          // data = {this.state.dataSource}
           onPress={() => this.props.navigation.navigate('AddStudent')}
         />
+        </TouchableOpacity>
 
          <Button
+          // icon = 
           title="Go to Home"
           onPress={() => this.props.navigation.navigate('Home')}
         />
+
       </View>
     );
   }
@@ -144,15 +158,25 @@ class StudentList extends React.Component {
 class StudentProfile extends React.Component{
   render(){
     const {params} = this.props.navigation.state
+    console.warn(params) //views the parameters~ 
     // console.warn(params.name)
     return(
-      <View>
-        <Text> Viewing information for student {params.name} </Text>
-        <Text> { params.cptg121 === true ? <Text> taken cptg121 </Text> : <Text> not taken cptg121 </Text> } </Text>
-        </View> 
+      <View style = {styles.pageView}>
+        <Text style ={styles.title}> {params.name} </Text>
+        <View style = {styles.list}>
+        <Text style = {styles.classList}> 
+        { params.cptg121 === true ? <Text> CPTG 121 </Text> : <Text> not taken cptg121 </Text> } {"\n"}
+        { params.cptg122 === true ? <Text> CPTG 122 </Text> : <Text> not taken cptg122 </Text> } {"\n"}
+        { params.cptg244 === true ? <Text> CPTG 244 </Text> : <Text> not taken cptg244 </Text> } {"\n"}
+        { params.cptg255 === true ? <Text> CPTG 255 </Text> : <Text> not taken cptg255 </Text> } {"\n"}
+        </Text>
+         </View>
+       </View> 
     )
   }
 } //end StudentProfile
+
+// NAVIGATION
 
 const AppNavigator = createStackNavigator
 ({
@@ -166,5 +190,49 @@ const AppNavigator = createStackNavigator
  {
     initialRouteName: "Home"
   });
+
+//STYLES
+  const styles = StyleSheet.create({
+    container: {
+  //  flex: 1,
+   paddingTop: 10,
+   alignItems: 'center',
+  },
+  pageView:{
+    flex: 1,
+  },
+  title: {
+    margin: 10,
+    color: 'black',
+    fontSize: 50,
+    fontFamily: 'AvenirNext-Regular',
+    textAlign: 'center',
+  },
+  row: {
+   flex: 1,
+   paddingVertical: 10,
+   paddingHorizontal: 115,
+   flexDirection: 'row',
+   justifyContent: 'space-between',
+   borderBottomWidth: 0.2,
+   borderBottomColor: 'grey',
+  },
+  classList: {
+    // flex:1,
+    paddingVertical: 5,
+    textAlign: 'center',
+  },
+  buttonLink: {
+    fontSize: 40,
+    lineHeight:40,
+    fontFamily: 'Avenir',
+    position: 'absolute',
+  },
+  addStudentButton: {
+     position: 'absolute',
+     right: 0,
+     bottom:0,
+  }
+});
 
 export default createAppContainer(AppNavigator);

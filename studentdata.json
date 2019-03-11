@@ -10,7 +10,15 @@
       "cptg255": true,
       "cptg324": true,
       "cptg434": true,
-      "cptg445": true
+      "cptg445": true,
+      "grade121": "92.89%",
+      "grade122": "92.89%",
+      "grade244": "92.89%",
+      "grade245": "92.89%",
+      "grade255": "92.89%",
+      "grade324": "92.89%",
+      "grade434": "92.89%",
+      "grade445": "92.89%"
     },
     {
       "id": 2,
@@ -22,7 +30,15 @@
       "cptg255": true,
       "cptg324": false,
       "cptg434": true,
-      "cptg445": true
+      "cptg445": true,
+      "grade121": "92.89%",
+      "grade122": "92.89%",
+      "grade244": "92.89%",
+      "grade245": "92.89%",
+      "grade255": "92.89%",
+      "grade324": "92.89%",
+      "grade434": "92.89%",
+      "grade445": "92.89%"
     },
     {
       "id": 3,
@@ -34,7 +50,15 @@
       "cptg255": true,
       "cptg324": false,
       "cptg434": false,
-      "cptg445": true
+      "cptg445": true,
+      "grade121": "92.89%",
+      "grade122": "92.89%",
+      "grade244": "92.89%",
+      "grade245": "92.89%",
+      "grade255": "92.89%",
+      "grade324": "92.89%",
+      "grade434": "92.89%",
+      "grade445": "92.89%"
     },
     {
       "name": "Jade Regoso",
@@ -46,7 +70,15 @@
       "cptg324": true,
       "cptg434": true,
       "cptg445": true,
-      "id": 4
+      "id": 4,
+      "grade121": "92.89%",
+      "grade122": "92.89%",
+      "grade244": "92.89%",
+      "grade245": "92.89%",
+      "grade255": "92.89%",
+      "grade324": "92.89%",
+      "grade434": "92.89%",
+      "grade445": "92.89%"
     },
     {
       "name": "Jacklyn Carter",
@@ -58,7 +90,15 @@
       "cptg324": true,
       "cptg434": true,
       "cptg445": true,
-      "id": 5
+      "id": 5,
+      "grade121": "92.89%",
+      "grade122": "92.89%",
+      "grade244": "92.89%",
+      "grade245": "92.89%",
+      "grade255": "92.89%",
+      "grade324": "92.89%",
+      "grade434": "92.89%",
+      "grade445": "92.89%"
     },
     {
       "name": "Enoch Hwang",
@@ -70,7 +110,15 @@
       "cptg324": false,
       "cptg434": false,
       "cptg445": false,
-      "id": 6
+      "id": 6,
+      "grade121": "92.89%",
+      "grade122": "92.89%",
+      "grade244": "92.89%",
+      "grade245": "92.89%",
+      "grade255": "92.89%",
+      "grade324": "92.89%",
+      "grade434": "92.89%",
+      "grade445": "92.89%" 
     },
     {
       "name": "New Student ",
@@ -82,7 +130,15 @@
       "cptg324": false,
       "cptg434": false,
       "cptg445": false,
-      "id": 7
+      "id": 7,
+      "grade121": "92.89%",
+      "grade122": "92.89%",
+      "grade244": "92.89%",
+      "grade245": "92.89%",
+      "grade255": "92.89%",
+      "grade324": "92.89%",
+      "grade434": "92.89%",
+      "grade445": "92.89%"
     },
     {
       "name": "Sam Ngyuen",
@@ -94,7 +150,35 @@
       "cptg324": false,
       "cptg434": false,
       "cptg445": false,
-      "id": 8
+      "id": 8,
+      "grade121": "92.89%",
+      "grade122": "92.89%",
+      "grade244": "92.89%",
+      "grade245": "92.89%",
+      "grade255": "92.89%",
+      "grade324": "92.89%",
+      "grade434": "92.89%",
+      "grade445": "92.89%"
+    },
+    {
+      "name": "Transfer",
+      "cptg121": true,
+      "cptg122": false,
+      "cptg244": true,
+      "cptg245": false,
+      "cptg255": true,
+      "cptg324": false,
+      "cptg434": true,
+      "cptg445": true,
+      "id": 9,
+      "grade121": "92.89%",
+      "grade122": "92.89%",
+      "grade244": "92.89%",
+      "grade245": "92.89%",
+      "grade255": "92.89%",
+      "grade324": "92.89%",
+      "grade434": "92.89%",
+      "grade445": "92.89%"
     }
   ]
 }

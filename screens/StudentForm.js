@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import axios from "axios";
-import { TouchableHighlight, TouchableOpacity, StyleSheet, View, Text, FlatList, TextInput } from "react-native";
+import { TouchableHighlight, TouchableOpacity, StyleSheet, View, Text, FlatList, TextInput, KeyboardAvoidingView, ScrollView } from "react-native";
 import { FormLabel, FormInput, FormValidationMessage, CheckBox, Button } from 'react-native-elements'
-import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
+import { Header } from 'react-navigation';
 
 let name;
 
@@ -12,7 +12,7 @@ class Form extends Component{
         this.state = {
             name: '',
             email: '',
-            // cptg121: false,
+            language: '',
             checked: false,
             checked1: false,
             checked2: false,
@@ -75,13 +75,29 @@ class Form extends Component{
     render(){
         return(
             <View>
-            <FormLabel>  Name </FormLabel>
+            <FormLabel> Enter a Student Name </FormLabel>
              <TextInput
                 placeholder="Name"
                 style={styles.input}
                 onChangeText={(text)=> this.updateValue(text, 'name')}
                 />
-        
+
+            <KeyboardAvoidingView
+                keyboardVerticalOffset = {Header.HEIGHT + 20} // adjust the value here if you need more padding
+                style = {{ flex: 1 }}
+                behavior = "padding" >
+
+  <ScrollView>
+    <TextInput/>
+    <TextInput/>
+    <TextInput/>
+    <TextInput/>
+    <TextInput/>
+    <TextInput/>
+  </ScrollView> 
+
+</KeyboardAvoidingView>    
+            
             <CheckBox 
                 checked = {this.state.checked}
                 style = {{margin:10,flex:1,height:60,backgroundColor:'lavender',justifyContent:'center'}}
@@ -197,6 +213,14 @@ class Form extends Component{
 }
 
 const styles = StyleSheet.create({
+    input: {
+        borderBottomColor: 'black',
+        borderBottomWidth: 0.2,
+        paddingVertical: 10,
+        paddingHorizontal: 10,
+        paddingBottom: 20,
+    },
+
     container: {
         backgroundColor: '#F5FCFF',
         flex: 1,

@@ -168,33 +168,40 @@ class StudentList extends React.Component {
 
 
 class StudentProfile extends React.Component{
-  constructor(){
-    super();
-
-    // this.state = {
-    //   checked: params.cptg121
-    // }
+  constructor(props){
+    super(props);
+    // console.warn(props.navigation.state.params.name)
+      this.state = { 
+        checked: props.navigation.state.params.cptg121,
+        checked2: props.navigation.state.params.cptg122,
+    }
   }
+
+
   render(){
     const {params} = this.props.navigation.state
-    // console.warn(params)
-     this.state = {
-      checked: params.cptg121
-    }
-   cptg121status = console.warn(!this.state.checked) //true
+    const cptg121status = params.cptg121
+    
+
     return(
       <View style = {styles.pageView}>
         <Text style ={styles.title}> {params.name} </Text> 
-        <CheckBox 
+         <CheckBox //cptg121
                 checked = {this.state.checked}
-                style = {{margin:10,flex:1,height:60,backgroundColor:'lavender',justifyContent:'center'}}
-                title = 'CPTG121'
+                title = 'CPTG121 Has Been Taken'
                 onPress={() => {
-                    // console.warn("CPTG121 is", !this.state.checked)
-                    const newState = !this.state.checked
-                    this.setState({
-                        checked: newState})
-                        }
+                  this.setState({
+                    checked: !this.state.checked
+                  }) }
+                }
+            />
+             <CheckBox //cptg122
+                checked = {this.state.checked2}
+                title = 'CPTG121 Has Been Taken'
+                onPress={() => {
+                  this.setState({
+                    checked2: !this.state.checked2
+                  }) }
                 }
             />
         <Text>

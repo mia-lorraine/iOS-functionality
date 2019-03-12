@@ -49,7 +49,8 @@ class Form extends Component{
     fetch(`http://localhost:3001/info`, {
             method: 'POST',
             headers: {
-            Accept: 'application/json',
+            Accept: 
+            'application/json',
             'Content-Type': 'application/json',
              },
             body: JSON.stringify({

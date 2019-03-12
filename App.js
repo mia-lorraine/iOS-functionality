@@ -15,6 +15,7 @@ import {  View,
           TouchableOpacity} from "react-native";
 import {CheckBox} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import axios from 'axios';;
 
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
@@ -174,21 +175,84 @@ class StudentProfile extends React.Component{
       this.state = { 
         checked: props.navigation.state.params.cptg121,
         checked2: props.navigation.state.params.cptg122,
+        checked3: props.navigation.state.params.cptg244,
+        checked4: props.navigation.state.params.cptg255,
+        checked5: props.navigation.state.params.cptg324,
+        checked6: props.navigation.state.params.cptg434,
+        checked7: props.navigation.state.params.cptg445,
     }
   }
 
+  submit() {
+        // collects data 
+        let collection={}
+        collection.checked=this.state.checked,
+        collection.checked1=this.state.checked1
+        collection.checked2=this.state.checked2
+        collection.checked3=this.state.checked3
+        collection.checked4=this.state.checked4
+        collection.checked5=this.state.checked5
+        collection.checked6=this.state.checked6
+        collection.checked7=this.state.checked7
+
+      axios({
+        method: 'patch',
+        url: 'http://localhost:3001/info',
+        data: { 
+            cptg121: collection.checked,
+            cptg122: collection.checked1,
+            cptg244: collection.checked2,
+            cptg245: collection.checked3,
+            cptg255: collection.checked4,
+            cptg324: collection.checked5,
+            cptg434: collection.checked6,
+            cptg445: collection.checked,
+            }
+      })
+      .then((response) => {
+          console.warn(response)
+          console.warn(response.data)
+      }).catch(err => {
+        console.warn('caught an error')
+      })
+
+        // console.warn(collection);
+    
+    // axios(`http://localhost:3001/info`, {
+    //         method: 'PUT',
+    //         headers: {
+    //         Accept: 
+    //         'application/json',
+    //         'Content-Type': 'application/json',
+    //          },
+    //         body: JSON.stringify({
+    //         cptg121: collection.checked,
+    //         cptg122: collection.checked1,
+    //         cptg244: collection.checked2,
+    //         cptg245: collection.checked3,
+    //         cptg255: collection.checked4,
+    //         cptg324: collection.checked5,
+    //         cptg434: collection.checked6,
+    //         cptg445: collection.checked7
+    //       }),
+    //     })
+    //     .then((res) => {
+    //         console.log(res)
+    //     })
+    //      .catch(err => {
+    //     console.log('caught an error', err);
+    //     });
+    }
 
   render(){
     const {params} = this.props.navigation.state
-    const cptg121status = params.cptg121
-    
-
     return(
       <View style = {styles.pageView}>
         <Text style ={styles.title}> {params.name} </Text> 
+
          <CheckBox //cptg121
                 checked = {this.state.checked}
-                title = 'CPTG121 Has Been Taken'
+                title = 'CPTG121 HAS BEEN TAKEN'
                 onPress={() => {
                   this.setState({
                     checked: !this.state.checked
@@ -197,14 +261,71 @@ class StudentProfile extends React.Component{
             />
              <CheckBox //cptg122
                 checked = {this.state.checked2}
-                title = 'CPTG121 Has Been Taken'
+                title = 'CPTG122 HAS BEEN TAKEN'
                 onPress={() => {
                   this.setState({
                     checked2: !this.state.checked2
                   }) }
                 }
             />
-        <Text>
+
+           <CheckBox //cptg244
+                checked = {this.state.checked3}
+                title = 'CPTG244 HAS BEEN TAKEN'
+                onPress={() => {
+                  this.setState({
+                    checked3: !this.state.checked3
+                  }) }
+                }
+            />
+
+             <CheckBox //cptg255
+                checked = {this.state.checked4}
+                title = 'CPTG255 HAS BEEN TAKEN'
+                onPress={() => {
+                  this.setState({
+                    checked4: !this.state.checked4
+                  }) }
+                }
+            />
+             <CheckBox //cptg324
+                checked = {this.state.checked5}
+                title = 'CPTG324 HAS BEEN TAKEN'
+                onPress={() => {
+                  this.setState({
+                    checked5: !this.state.checked5
+                    }) 
+                  }
+                }
+            />
+             <CheckBox //cptg434
+                checked = {this.state.checked6}
+                title = 'CPTG434 HAS BEEN TAKEN'
+                onPress={() => {
+                  this.setState({
+                    checked6: !this.state.checked6
+                    }) 
+                  }
+                }
+            />
+               <CheckBox //cptg445
+                checked = {this.state.checked7}
+                title = 'CPTG445 HAS BEEN TAKEN'
+                onPress={() => {
+                  this.setState({
+                    checked7: !this.state.checked7
+                    }) 
+                  }
+                }
+            />
+
+
+       <Button 
+        onPress = {() => this.submit()}
+        title = "Submit"
+        > submit </Button>
+
+        {/* <Text>
           { params.cptg121 === true ? <Text style={styles.taken}> CPTG 121 ......... {params.grade121} </Text> : <Text style = {styles.notTaken}> CPTG 121 </Text>}  {"\n"}
           { params.cptg122 === true ? <Text style={styles.taken}> CPTG 122 ......... {params.grade122} </Text> : <Text style = {styles.notTaken}> CPTG 122 </Text> } {"\n"}
           { params.cptg244 === true ? <Text style={styles.taken}> CPTG 244 ......... {params.grade244} </Text> : <Text style = {styles.notTaken}> CPTG 244 </Text> } {"\n"}
@@ -212,7 +333,7 @@ class StudentProfile extends React.Component{
           { params.cptg324 === true ? <Text style={styles.taken}> CPTG 324 ......... {params.grade324} </Text> : <Text style = {styles.notTaken}> CPTG 324 </Text> } {"\n"}
           { params.cptg434 === true ? <Text style={styles.taken}> CPTG 434 ......... {params.grade434} </Text> : <Text style = {styles.notTaken}> CPTG 434 </Text> } {"\n"}
           { params.cptg445 === true ? <Text style={styles.taken}> CPTG 445 ......... {params.grade445} </Text> : <Text style = {styles.notTaken}> CPTG 445 </Text> } {"\n"}
-         </Text>
+         </Text> */}
         </View>
     )
   }

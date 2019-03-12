@@ -54,7 +54,6 @@ class Form extends Component{
             'Content-Type': 'application/json',
              },
             body: JSON.stringify({
-            name: collection.name,
             cptg121: collection.checked,
             cptg122: collection.checked1,
             cptg244: collection.checked2,

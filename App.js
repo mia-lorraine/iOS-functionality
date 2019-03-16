@@ -119,6 +119,7 @@ class StudentList extends React.Component {
                   color="black"
                   onPress={() => {
                     this.props.navigation.navigate('Profile', {
+                      id: item.id,
                       name: item.name,
                       cptg121: item.cptg121,
                       cptg122: item.cptg122,
@@ -173,6 +174,7 @@ class StudentProfile extends React.Component{
     super(props);
     // console.warn(props.navigation.state.params.name)
       this.state = { 
+        id: props.navigation.state.params.id,
         checked: props.navigation.state.params.cptg121,
         checked2: props.navigation.state.params.cptg122,
         checked3: props.navigation.state.params.cptg244,
@@ -181,9 +183,11 @@ class StudentProfile extends React.Component{
         checked6: props.navigation.state.params.cptg434,
         checked7: props.navigation.state.params.cptg445,
     }
+    // console.warn(props.navigation.state.params.id)
   }
 
-  submit() {
+  submit(event) {
+    event.preventDefault();
         // collects data 
         let collection={}
         collection.checked=this.state.checked,
@@ -195,9 +199,10 @@ class StudentProfile extends React.Component{
         collection.checked6=this.state.checked6
         collection.checked7=this.state.checked7
 
+        console.warn(collection)
       axios({
-        method: 'patch',
-        url: 'http://localhost:3001/info',
+        method: 'PATCH',
+        url: `http://localhost:3001/info/${this.state.id}`,
         data: { 
             cptg121: collection.checked,
             cptg122: collection.checked1,
@@ -210,38 +215,12 @@ class StudentProfile extends React.Component{
             }
       })
       .then((response) => {
-          console.warn(response)
+          // console.warn(response)
           console.warn(response.data)
-      }).catch(err => {
-        console.warn('caught an error')
       })
-
-        // console.warn(collection);
-    
-    // axios(`http://localhost:3001/info`, {
-    //         method: 'PUT',
-    //         headers: {
-    //         Accept: 
-    //         'application/json',
-    //         'Content-Type': 'application/json',
-    //          },
-    //         body: JSON.stringify({
-    //         cptg121: collection.checked,
-    //         cptg122: collection.checked1,
-    //         cptg244: collection.checked2,
-    //         cptg245: collection.checked3,
-    //         cptg255: collection.checked4,
-    //         cptg324: collection.checked5,
-    //         cptg434: collection.checked6,
-    //         cptg445: collection.checked7
-    //       }),
-    //     })
-    //     .then((res) => {
-    //         console.log(res)
-    //     })
-    //      .catch(err => {
-    //     console.log('caught an error', err);
-    //     });
+      // }).catch(err => {
+      //   console.warn('caught an error')
+      // })
     }
 
   render(){
@@ -380,9 +359,10 @@ const AppNavigator = createStackNavigator
    borderBottomWidth: 0.2,
    borderBottomColor: 'grey',
   },
-  // classList: {
-  //   textAlign: 'center',
-  // },
+  lineThrough: {
+    textDecorationLine: 'line-through', 
+    textDecorationStyle: 'solid'
+  },
   buttonLink: {
     fontSize: 40,
     lineHeight:40,

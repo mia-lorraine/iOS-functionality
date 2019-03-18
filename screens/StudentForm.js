@@ -81,22 +81,7 @@ class Form extends Component{
                 style={styles.input}
                 onChangeText={(text)=> this.updateValue(text, 'name')}
                 />
-
-            <KeyboardAvoidingView
-                keyboardVerticalOffset = {Header.HEIGHT + 20} // adjust the value here if you need more padding
-                style = {{ flex: 1 }}
-                behavior = "padding" >
-
-  <ScrollView>
-    <TextInput/>
-    <TextInput/>
-    <TextInput/>
-    <TextInput/>
-    <TextInput/>
-    <TextInput/>
-  </ScrollView> 
-
-</KeyboardAvoidingView>    
+  
             
             <CheckBox 
                 checked = {this.state.checked}

@@ -124,6 +124,7 @@ class StudentList extends React.Component {
                       cptg121: item.cptg121,
                       cptg122: item.cptg122,
                       cptg244: item.cptg244,
+                      cptg245: item.cptg245,
                       cptg255: item.cptg255,
                       cptg324: item.cptg324,
                       cptg434: item.cptg434,
@@ -137,9 +138,9 @@ class StudentList extends React.Component {
                       grade445: item.grade445,
                     }
                     )
-                    this.setState({
-                      checked: item.cptg121
-                    })
+                    // this.setState({
+                    //   checked: item.cptg121
+                    // })
                      }}
                   title={item.name}
                   /> 
@@ -176,8 +177,9 @@ class StudentProfile extends React.Component{
       this.state = { 
         id: props.navigation.state.params.id,
         checked: props.navigation.state.params.cptg121,
-        checked2: props.navigation.state.params.cptg122,
-        checked3: props.navigation.state.params.cptg244,
+        checked1: props.navigation.state.params.cptg122,
+        checked2: props.navigation.state.params.cptg244,
+        checked3: props.navigation.state.params.cptg245,
         checked4: props.navigation.state.params.cptg255,
         checked5: props.navigation.state.params.cptg324,
         checked6: props.navigation.state.params.cptg434,
@@ -186,8 +188,8 @@ class StudentProfile extends React.Component{
     // console.warn(props.navigation.state.params.id)
   }
 
-  submit(event) {
-    event.preventDefault();
+  submit(e) {
+      e.preventDefault()
         // collects data 
         let collection={}
         collection.checked=this.state.checked,
@@ -211,7 +213,7 @@ class StudentProfile extends React.Component{
             cptg255: collection.checked4,
             cptg324: collection.checked5,
             cptg434: collection.checked6,
-            cptg445: collection.checked,
+            cptg445: collection.checked7,
             }
       })
       .then((response) => {
@@ -239,8 +241,18 @@ class StudentProfile extends React.Component{
                 }
             />
              <CheckBox //cptg122
-                checked = {this.state.checked2}
+                checked = {this.state.checked1}
                 title = 'CPTG122 HAS BEEN TAKEN'
+                onPress={() => {
+                  this.setState({
+                    checked1: !this.state.checked1
+                  }) }
+                }
+            />
+
+           <CheckBox //cptg244
+                checked = {this.state.checked2}
+                title = 'CPTG244 HAS BEEN TAKEN'
                 onPress={() => {
                   this.setState({
                     checked2: !this.state.checked2
@@ -248,9 +260,9 @@ class StudentProfile extends React.Component{
                 }
             />
 
-           <CheckBox //cptg244
+              <CheckBox //cptg245
                 checked = {this.state.checked3}
-                title = 'CPTG244 HAS BEEN TAKEN'
+                title = 'CPTG245 HAS BEEN TAKEN'
                 onPress={() => {
                   this.setState({
                     checked3: !this.state.checked3
@@ -300,7 +312,7 @@ class StudentProfile extends React.Component{
 
 
        <Button 
-        onPress = {() => this.submit()}
+        onPress = {(e) => this.submit(e)}
         title = "Submit"
         > submit </Button>
 
